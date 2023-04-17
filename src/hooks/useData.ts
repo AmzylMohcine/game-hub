@@ -29,7 +29,7 @@ const useData = <T>(endpoint: string) => {
     return () => controller.abort()
   }, [])
 
-  return { error, data, isLoading }
+  return { data, isLoading, error }
 }
 
 export default useData
