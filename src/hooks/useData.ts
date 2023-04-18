@@ -3,12 +3,12 @@ import apiClient from "../services/api-client"
 import { AxiosRequestConfig, CanceledError } from "axios"
 
 export interface FetrchResponse<T> {
-  const: number
+  count: number
   results: T[]
 }
 const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
   const [data, setData] = useState<T[]>([])
-  const [error, setError] = useState([])
+  const [error, setError] = useState()
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(
