@@ -8,11 +8,13 @@ import PlatformSelector from "./components/PlatformSelector"
 import { Platform } from "./hooks/useGames"
 import { Platforms } from "./hooks/usePlatforms"
 import SortSelector from "./components/SortSelector"
+import SearchInput from "./components/SearchInput"
 
 export interface GameQuery {
   genre: Genre | null
   platform: Platforms | null
   sortOrder: string
+  searchText: string
 }
 function App() {
   // store selected genre
@@ -24,7 +26,7 @@ function App() {
     <>
       <Grid templateAreas={{ base: `"nav" "main"`, /* lg = > 1024px*/ lg: `"nav nav" "aside main"` }} templateColumns={{ base: "1fr", lg: "200px 1fr" }}>
         <GridItem area="nav">
-          <NavBar />
+          <NavBar onSearch={searchText => setGameQuery({ ...gamequery, searchText })} />
         </GridItem>
 
         <Show above="lg">
